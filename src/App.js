@@ -1,9 +1,11 @@
+import PublicRoutes from 'Pages/PublicRoutes';
 import './App.scss';
-import './Scss/bootstrap.scss'
+
 
 function App() {
   return (
     <>
+    <PublicRoutes />
     </>
   );
 }
