@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function AuthContext() {
+export default function AuthContextProvider() {
+
+  const [state,setState]=
   return (
-    <div>
-      
-    </div>
+    <>
+
+    </>
   )
 }
