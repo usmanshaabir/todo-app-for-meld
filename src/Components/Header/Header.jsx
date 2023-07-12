@@ -1,7 +1,17 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuthContext } from '../../Context/AuthContext';
+
 
 export default function Header() {
+
+  const { isAuth, dispatch } = useAuthContext()
+  const navigate = useNavigate()
+  const handleLogOut = () => {
+    dispatch({ type: 'LOGOUT' })
+    // localStorage.removeItem('todos')
+    navigate('/Login/login')
+  }
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-primary navbar-dark">
@@ -28,10 +38,16 @@ export default function Header() {
                 <Link to='/TodoList' className="nav-link active" aria-current="page">TodoList</Link>
               </li>
             </ul>
-            <form className="d-flex" role="search">
-              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                <button className="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            <div>
+              {
+                !isAuth ?
+                  <Link to='/Login/login' className='btn btn-lg btn-danger me-3'>Login</Link> :
+                  <>
+                    <Link to='/Dashboard/welecomeDashboard' className='btn btn-lg btn-success me-3'>Dashboard</Link>
+                    <button className='btn btn-lg btn-info' onClick={handleLogOut}>Logout</button>
+                  </>
+              }
+            </div>
           </div>
         </div>
       </nav>

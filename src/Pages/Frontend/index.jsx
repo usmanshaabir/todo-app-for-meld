@@ -17,6 +17,8 @@ export default function index() {
         <Route path='Contact'  element={<Contact/>} />
         <Route path='AddTodo'  element={<AddTodo/>} />
         <Route path='TodoList'  element={<TodoList/>} />
+        <Route path='TodoList'  element={<TodoList/>} />
+        <Route path='updateTodo/:id'  element={<updateTodo/>} />
       </Routes>
     </>
   )
