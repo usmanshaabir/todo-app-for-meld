@@ -5,7 +5,7 @@ const initState = { name: '', date: '', email: '', password: '' }
 
 export default function AddTodo() {
 
-const navigate=useNavigate()
+  const navigate = useNavigate()
   const [state, setState] = useState(initState);
 
   const handleChange = (e) => {
@@ -17,11 +17,12 @@ const navigate=useNavigate()
 
     var { name, date, email, password } = state
 
-    const usertodo = { name, date, email, password, id: Math.random().toString(36).slice(2) }
+    const usertodo = { name, date, email, password, status: 'active' , id: Math.random().toString(36).slice(2)}
 
     const getTodos = JSON.parse(localStorage.getItem('getTodo')) || []
 
     getTodos.push(usertodo);
+    console.log(getTodos);
 
     setTimeout(() => {
       localStorage.setItem("getTodo", JSON.stringify(getTodos))
@@ -30,7 +31,7 @@ const navigate=useNavigate()
 
   }
 
-  const TodoList = ()=>{
+  const TodoList = () => {
     navigate('/TodoList')
   }
   return (

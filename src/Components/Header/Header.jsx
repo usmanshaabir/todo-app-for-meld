@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../../Context/AuthContext';
 
@@ -6,7 +6,9 @@ import { useAuthContext } from '../../Context/AuthContext';
 export default function Header() {
 
   const { isAuth, dispatch } = useAuthContext()
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
+
   const handleLogOut = () => {
     dispatch({ type: 'LOGOUT' })
     // localStorage.removeItem('todos')

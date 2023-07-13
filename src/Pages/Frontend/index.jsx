@@ -6,6 +6,7 @@ import About from './About';
 import Contact from './Contact';
 import AddTodo from './AddTodo';
 import TodoList from './TodoList';
+import UpdateTodo from './TodoList/UpdateTodo';
 
 export default function index() {
   return (
@@ -17,8 +18,7 @@ export default function index() {
         <Route path='Contact'  element={<Contact/>} />
         <Route path='AddTodo'  element={<AddTodo/>} />
         <Route path='TodoList'  element={<TodoList/>} />
-        <Route path='TodoList'  element={<TodoList/>} />
-        <Route path='updateTodo/:id'  element={<updateTodo/>} />
+        <Route path='TodoList/:id'  element={<UpdateTodo/>} />
       </Routes>
     </>
   )
