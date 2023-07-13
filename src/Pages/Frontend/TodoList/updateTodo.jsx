@@ -90,6 +90,17 @@ export default function AddTodo() {
                           <input type="password" name='password' value={state.password} onChange={handleChange} className="form-control" />
                         </div>
                       </div>
+                      <div className="col-md-12">
+                        <label className="form-label">status</label>
+                        <select className="form-select" name="status" value={state.status} onChange={handleChangeStatus} >
+                          {
+                            ['active', 'inactive'].map((status, index) => {
+                              return <option key={index} value={status} >{status}</option>
+                            })
+                          }
+
+                        </select>
+                      </div>
                       <div className="d-grid gap-2 col-6 mx-auto mt-3">
                         <button className="btn btn-primary" type="button" onClick={handleSubmit}>Update</button>
                       </div>
